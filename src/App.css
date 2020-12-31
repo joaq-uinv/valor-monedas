@@ -15,7 +15,6 @@ body {
   width: 100%;
   color: #ccc;
   overflow: hidden;
-  /*  poner boton de home en las otras secciones */
 }
 
 body::after {
@@ -70,42 +69,6 @@ body::after {
   border: #12191f;
   color: #12191f;
 }
-
-/* .menu-desplegable {
-  display: flex;
-  align-items: center;
-  margin-top: 5rem;
-}
-
-.btn-hamburguesa {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 2rem;
-  width: 3rem;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-.btn-hamburguesa:focus {
-  outline: none;
-}
-
-.linea-hamburguesa {
-  background: #ccc;
-  width: 3rem;
-  height: 2px;
-}
-
-.lista-desplegables {
-  list-style: none;
-  display: flex;
-}
-
-.item-desplegable {
-  padding: 0 0.5rem;
-} */
 
 .btn-home-fisicas {
   background: none;
