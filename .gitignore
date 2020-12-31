@@ -11,12 +11,23 @@
 # production
 /build
 
+#public
+/public/icon.png
+/public/logo192.png
+/public/logo512.png
+
+#src
+/src/componentes/BarraDesplegable.js
+/src/componentes/Hamburguesa.js
+/src/componentes/MenuDesplegable.js
+
 # misc
 .DS_Store
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
+process.env
 
 npm-debug.log*
 yarn-debug.log*
