@@ -1,4 +1,5 @@
 import { React } from "react";
+import Hamburguesa from "./Hamburguesa";
 import { animateScroll as scroll } from "react-scroll";
 
 const Fisicas = ({
