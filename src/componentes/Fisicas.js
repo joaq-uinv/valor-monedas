@@ -1,6 +1,6 @@
-import { React } from "react";
-import Hamburguesa from "./Hamburguesa";
+import { React, useState } from "react";
 import { animateScroll as scroll } from "react-scroll";
+import HamburguesaFisicas from "./HamburguesaFisicas";
 
 const Fisicas = ({
   opcionesMonedas,
@@ -14,6 +14,8 @@ const Fisicas = ({
   estaConvirtiendo,
   setEstaConvirtiendo,
 }) => {
+  const [menuAbierto, setMenuAbierto] = useState(false);
+
   const convertirMoneda = async (primeraMoneda, segundaMoneda) => {
     try {
       setEstaConvirtiendo(true);
@@ -28,44 +30,65 @@ const Fisicas = ({
     }
   };
 
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
   const irHome = () => {
     scroll.scrollToTop();
+    setMenuAbierto(!menuAbierto);
   };
 
   const irCriptos = () => {
     scroll.scrollMore(651);
+    setMenuAbierto(!menuAbierto);
   };
 
   return (
     <div className="container-fisicas" id="fisicas">
-      <button onClick={irHome} className="btn-home-fisicas">
-        <i class="fas fa-arrow-up fa-3x"></i>
-      </button>
-      <section className="container-selects">
-        <select
-          name="opcion-primera"
-          onChange={(e) => setMonedaInicial(e.target.value)}
-          required
+      <section className="menu">
+        <HamburguesaFisicas toggleMenu={toggleMenu} />
+        <button
+          onClick={irHome}
+          className={
+            menuAbierto
+              ? "btn-home-fisicas-abierto"
+              : "btn-home-fisicas-cerrado"
+          }
         >
-          {opcionesMonedas.map((opcion) => (
-            <option value={opcion} key={opcion}>
-              {opcion}
-            </option>
-          ))}
-        </select>
-        <span style={{ margin: "0 1rem" }}>a</span>
-        <select
-          name="segunda"
-          onChange={(e) => setMonedaFinal(e.target.value)}
-          required
+          <i class="fas fa-arrow-up fa-3x"></i>
+        </button>
+        <button
+          onClick={irCriptos}
+          className={menuAbierto ? "btn-abajo-abierto" : "btn-abajo-cerrado"}
         >
-          {opcionesMonedas.map((opcion) => (
-            <option value={opcion} key={opcion}>
-              {opcion}
-            </option>
-          ))}
-        </select>
+          <i class="fas fa-arrow-down fa-3x"></i>
+        </button>
       </section>
+
+      <select
+        name="primera"
+        onChange={(e) => setMonedaInicial(e.target.value)}
+        required
+      >
+        {opcionesMonedas.map((opcion) => (
+          <option value={opcion} key={opcion}>
+            {opcion}
+          </option>
+        ))}
+      </select>
+      <span style={{ margin: "0 1rem" }}>a</span>
+      <select
+        name="segunda"
+        onChange={(e) => setMonedaFinal(e.target.value)}
+        required
+      >
+        {opcionesMonedas.map((opcion) => (
+          <option value={opcion} key={opcion}>
+            {opcion}
+          </option>
+        ))}
+      </select>
       <button
         type="submit"
         className="btn-convertir"
@@ -78,9 +101,6 @@ const Fisicas = ({
       <span>
         {estaConvirtiendo ? "Convirtiendo" : Number(tipoCambio).toFixed(2)}
       </span>
-      <button onClick={irCriptos} className="btn-abajo">
-        <i class="fas fa-arrow-down fa-3x"></i>
-      </button>
     </div>
   );
 };

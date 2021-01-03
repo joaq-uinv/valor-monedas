@@ -38,8 +38,7 @@ body::after {
   transform: translate(-50%, -50%);
 }
 
-.container-btns,
-.container-fisicas {
+.container-btns {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -70,37 +69,68 @@ body::after {
   color: #12191f;
 }
 
-.btn-home-fisicas {
-  background: none;
-  color: #ccc;
-  border: none;
+.container-fisicas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn-hamburguesa-fisicas {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: absolute;
-  top: 45rem;
-  left: 2rem;
+  bottom: -10%;
+  left: 5%;
+  height: 1.5rem;
+  width: 2rem;
+  background: transparent;
+  border: none;
   cursor: pointer;
   outline: none;
 }
 
-.btn-abajo {
-  background: none;
-  color: #ccc;
-  border: none;
-  position: absolute;
-  top: 80rem;
-  left: 2rem;
-  cursor: pointer;
-  outline: none;
+.linea-hamburguesa {
+  width: 2rem;
+  height: 2px;
+  background: #ccc;
 }
 
-.btn-home-criptos {
+.btn-home-fisicas-cerrado,
+.btn-abajo-cerrado,
+.btn-home-criptos-cerrado,
+.btn-ir-fisicas-cerrado {
+  display: none;
+}
+
+.btn-home-fisicas-abierto {
   background: none;
   color: #ccc;
   border: none;
   position: absolute;
-  top: 88rem;
-  left: 2rem;
+  bottom: -11%;
+  left: 10%;
   cursor: pointer;
   outline: none;
+  animation: mostrar 0.5s ease;
+}
+
+.btn-abajo-abierto {
+  background: none;
+  color: #ccc;
+  border: none;
+  position: absolute;
+  bottom: -11%;
+  left: 15%;
+  cursor: pointer;
+  outline: none;
+  animation: mostrar 0.5s ease;
 }
 
 select {
@@ -148,6 +178,45 @@ option {
 
 .input-cripto::placeholder {
   color: #ccc;
+}
+
+.btn-hamburguesa-criptos {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  bottom: -111.5%;
+  left: 2.5%;
+  height: 1.5rem;
+  width: 2rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.btn-home-criptos-abierto {
+  background: none;
+  color: #ccc;
+  border: none;
+  position: absolute;
+  bottom: -112.5%;
+  left: 10%;
+  cursor: pointer;
+  outline: none;
+  animation: mostrar 0.5s ease;
+}
+
+.btn-ir-fisicas-abierto {
+  background: none;
+  color: #ccc;
+  border: none;
+  position: absolute;
+  bottom: -112.5%;
+  left: 17%;
+  cursor: pointer;
+  outline: none;
+  animation: mostrar 0.5s ease;
 }
 
 .tabla-criptos {
@@ -209,6 +278,15 @@ th {
   color: #e3432b;
 }
 
+@keyframes mostrar {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @media (max-width: 500px) {
   .btn-fiscas,
   .btn-criptos {
@@ -216,6 +294,28 @@ th {
     font-size: 0.5rem;
     padding: 0.5rem;
     margin: 0 0.5 0 0.5rem;
+  }
+
+  .btn-home-fisicas-abierto {
+    background: none;
+    color: #ccc;
+    border: none;
+    position: absolute;
+    bottom: -11%;
+    left: 20%;
+    cursor: pointer;
+    outline: none;
+  }
+
+  .btn-abajo-abierto {
+    background: none;
+    color: #ccc;
+    border: none;
+    position: absolute;
+    bottom: -11%;
+    left: 35%;
+    cursor: pointer;
+    outline: none;
   }
 
   .tabla-criptos tbody tr {

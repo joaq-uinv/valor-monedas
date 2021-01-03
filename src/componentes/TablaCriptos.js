@@ -1,7 +1,26 @@
-import { React } from "react";
+import { React, useState } from "react";
+import { animateScroll as scroll } from "react-scroll";
+//componentes
 import BuscarCripto from "./BuscarCripto";
+import HamburguesaCriptos from "./HamburguesaCriptos";
 
 const TablaCriptos = ({ onChange, criptosFiltradas }) => {
+  const [menuAbierto, setMenuAbierto] = useState(false);
+
+  const irHome = () => {
+    scroll.scrollToTop();
+    setMenuAbierto(!menuAbierto);
+  };
+
+  const irFisicas = () => {
+    scroll.scrollMore(-700);
+    setMenuAbierto(!menuAbierto);
+  };
+
+  const toggleMenu = () => {
+    setMenuAbierto(!menuAbierto);
+  };
+
   const encabezados = [
     "Moneda",
     "Precio (USD)",
@@ -13,6 +32,27 @@ const TablaCriptos = ({ onChange, criptosFiltradas }) => {
   return (
     <>
       <BuscarCripto onChange={onChange} />
+      <section className="menu">
+        <HamburguesaCriptos toggleMenu={toggleMenu} />
+        <button
+          onClick={irHome}
+          className={
+            menuAbierto
+              ? "btn-home-criptos-abierto"
+              : "btn-home-criptos-cerrado"
+          }
+        >
+          <i class="fas fa-arrow-up fa-3x"></i>
+        </button>
+        <button
+          onClick={irFisicas}
+          className={
+            menuAbierto ? "btn-ir-fisicas-abierto" : "btn-ir-fisicas-cerrado"
+          }
+        >
+          <i className="fas fa-dollar-sign fa-3x"></i>
+        </button>
+      </section>
       <table className="tabla-criptos">
         <thead>
           <tr className="encabezados">
