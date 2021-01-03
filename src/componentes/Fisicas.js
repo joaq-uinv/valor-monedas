@@ -40,7 +40,7 @@ const Fisicas = ({
   };
 
   const irCriptos = () => {
-    scroll.scrollMore(651);
+    scroll.scrollMore(700);
     setMenuAbierto(!menuAbierto);
   };
 
