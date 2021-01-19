@@ -1,5 +1,6 @@
 import { React, useState } from "react";
 import { animateScroll as scroll } from "react-scroll";
+//Componentes
 import HamburguesaFisicas from "./HamburguesaFisicas";
 
 const Fisicas = ({
@@ -65,7 +66,6 @@ const Fisicas = ({
           <i class="fas fa-arrow-down fa-3x"></i>
         </button>
       </section>
-
       <select
         name="primera"
         onChange={(e) => setMonedaInicial(e.target.value)}
