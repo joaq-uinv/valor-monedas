@@ -2,36 +2,36 @@ import { useState, useEffect } from "react";
 import "./App.css";
 //componentes
 import Loader from "./componentes/Loader";
-import Ppal from "./componentes/Ppal";
-import Fisicas from "./componentes/Fisicas";
+// import Ppal from "./componentes/Ppal";
+// import Fisicas from "./componentes/Fisicas";
 import TablaCriptos from "./componentes/TablaCriptos";
 
 function App() {
-  const API_KEY = "2d14b8545362b062f73c";
+  // const API_KEY = process.env.REACT_APP_API_KEY;
 
   const [estaCargando, setEstaCargando] = useState(false);
-  const [opcionesMonedas, setOpcionesMonedas] = useState([]);
-  const [estaConvirtiendo, setEstaConvirtiendo] = useState(false);
-  const [monedaInicial, setMonedaInicial] = useState();
-  const [monedaFinal, setMonedaFinal] = useState();
-  const [tipoCambio, setTipoCambio] = useState([]);
+  // const [opcionesMonedas, setOpcionesMonedas] = useState([]);
+  // const [estaConvirtiendo, setEstaConvirtiendo] = useState(false);
+  // const [monedaInicial, setMonedaInicial] = useState();
+  // const [monedaFinal, setMonedaFinal] = useState();
+  // const [tipoCambio, setTipoCambio] = useState([]);
   const [criptos, setCriptos] = useState([]);
   const [busquedaCriptos, setBusquedaCriptos] = useState("");
 
   useEffect(() => {
-    const traerMoneda = async () => {
-      try {
-        setEstaCargando(true);
-        const res = await fetch(
-          `https://free.currconv.com/api/v7/currencies?apiKey=${API_KEY}`
-        );
-        const { results } = await res.json();
-        setOpcionesMonedas([...Object.keys(results)]);
-        setEstaCargando(false);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    // const traerMoneda = async () => {
+    //   try {
+    //     setEstaCargando(true);
+    //     const res = await fetch(
+    //       `https://free.currconv.com/api/v7/currencies?apiKey=${API_KEY}`
+    //     );
+    //     const { results } = await res.json();
+    //     setOpcionesMonedas([...Object.keys(results)]);
+    //     setEstaCargando(false);
+    //   } catch (err) {
+    //     console.log(err);
+    //   }
+    // };
 
     const traerCripto = async () => {
       try {
@@ -47,7 +47,7 @@ function App() {
       }
     };
 
-    traerMoneda();
+    // traerMoneda();
     traerCripto();
   }, []);
 
@@ -65,7 +65,7 @@ function App() {
         <Loader />
       ) : (
         <>
-          <Ppal />
+          {/* <Ppal />
           <Fisicas
             opcionesMonedas={opcionesMonedas}
             monedaInicial={monedaInicial}
@@ -77,7 +77,7 @@ function App() {
             API_KEY={API_KEY}
             estaConvirtiendo={estaConvirtiendo}
             setEstaConvirtiendo={setEstaConvirtiendo}
-          />
+          /> */}
           <TablaCriptos
             onChange={onChange}
             criptosFiltradas={criptosFiltradas}

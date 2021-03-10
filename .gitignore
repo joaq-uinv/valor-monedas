@@ -20,7 +20,8 @@ firebase.json
 /public/logo512.png
 
 #src
-/src/imgs
+src/imgs
+src/componentes/InfoFisicas.js
 
 # misc
 .DS_Store
